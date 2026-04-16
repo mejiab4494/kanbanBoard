@@ -23,14 +23,16 @@ h1 {
 .kanban-board {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .toDo,
 .inProgress,
-.done {
+.done,
+.buildedColumn {
     width: 300px;
     min-height: 500px;
     background-color: #ebebf0;
@@ -43,9 +45,65 @@ h1 {
     padding: 12px;
 }
 
+/* Remove the old .newColumn styles and replace with: */
+
+.newColumn {
+    display: flex;
+    align-items: center;
+}
+
+.newColumn button {
+    padding: 10px 28px;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #555;
+    background: transparent;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.newColumn button:hover {
+    background: #ebebf0;
+    border-color: #999;
+    color: #222;
+}
+
+.newColumn button:active {
+    transform: scale(0.97);
+}
+
+.columnTitleInput {
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #7c6ff7;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #c0b8fc;
+    border-radius: 0;
+    padding: 4px 4px 8px;
+    outline: none;
+}
+
+.columnTitleInput:focus {
+    border-bottom-color: #6c63ff;
+}
+ 
+
 .toDo > h1,
 .inProgress > h1,
-.done > h1 {
+.done > h1,
+.buildedColumn > h1 {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0.07em;
@@ -59,6 +117,7 @@ h1 {
 .toDo > h1   { color: #7c6ff7; }
 .inProgress > h1 { color: #e8922a; }
 .done > h1   { color: #3baa72; }
+.buildedColumn > h1 {color : #8b3baa;}
 
 .card {
     background: #ffffff;
@@ -130,4 +189,64 @@ h1 {
 .done.drag-over {
     outline: 2px dashed #b0a8f8;
     background-color: #eeedfb;
+}
+
+/* Delete Button */
+
+.buildedColumn {
+    position: relative;  /* add this */
+}
+
+.deleteColumnBtn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    font-size: 18px;
+    line-height: 1;
+    color: #aaa;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.15s, background 0.15s;
+}
+
+.deleteColumnBtn:hover {
+    color: #e05555;
+    background: #fdecea;
+}
+
+.card {
+    position: relative;  /* add this to existing .card rule */
+}
+
+.deleteCardBtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 1;
+    color: #aaa;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.15s, background 0.15s;
+}
+
+.deleteCardBtn:hover {
+    color: #e05555;
+    background: #fdecea;
 }
