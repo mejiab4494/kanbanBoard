@@ -15,10 +15,49 @@ body {
     font-family: 'Segoe UI', sans-serif;
 }
 
-h1 {
-    display: block;
+.header {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
 }
+
+.resetBtn {
+  /* Layout & Sizing */
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  
+  /* Typography */
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  
+  /* Colors */
+  background-color: #007bff;
+  color: #ffffff;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover State: Triggered when mouse enters the button area */
+.resetBtn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Active State: Triggered while the button is being clicked */
+.resetBtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 .kanban-board {
     display: flex;
