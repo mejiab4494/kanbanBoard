@@ -9,7 +9,15 @@
 <body>
     <header class="header">
         <h1>Task Board</h1>
+        <div class="rightBtns">
+            <div class="auth-bar">
+                <span id="userLabel" hidden></span>
+                <button id="loginBtn">Sign in with Google</button>
+                <button id="logoutBtn" hidden>Sign out</button>
+            </div>
         <button class="resetBtn">Reset</button>
+        </div>
+</header>
     </header>
     
     <div class="kanban-board">
@@ -30,6 +38,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
